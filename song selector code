@@ -1,0 +1,724 @@
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MusicSelector {
+
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		new ArrayList<String>();
+		ArrayList<String> songlist = new ArrayList<String>();
+		System.out
+				.println("Welcome to the Michigan Tech Winter Carnival Music Selector!");
+		System.out.println("Let's get started: ");
+		System.out.println();
+
+		String song1 = "Thinking Out Loud";
+		String song2 = "FourFiveSeconds";
+		String song3 = "Uptown Funk";
+		String song4 = "Take Me to Church";
+		String song5 = "Sugar";
+		String song6 = "Love Me Like You Do";
+		String song7 = "Style";
+		String song8 = "Stay With Me";
+		String song9 = "Earned It";
+		String song10 = "Blank Space";
+
+		new ArrayList<String>();
+		ArrayList<String> songs = new ArrayList<String>();
+		songs.add(song1);
+		songs.add(song2);
+		songs.add(song3);
+		songs.add(song4);
+		songs.add(song5);
+		songs.add(song6);
+		songs.add(song7);
+		songs.add(song8);
+		songs.add(song9);
+		songs.add(song10);
+
+		System.out
+				.println("This is the list of songs that were in the top 10 on iTunes hottest songs: ");
+		for (int l = 0; l < songs.size(); l++) {
+			for (int n = 1; n <= 10; n++) {
+				System.out.println(n +". "+ songs.get(l));
+				// System.out.println();
+			}
+			System.out.println();
+
+			System.out
+					.print("Do you like any of these songs (enter yes or no)? ");
+			String answer = input.nextLine();
+
+			while (!answer.equalsIgnoreCase("yes")
+					&& !answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
+				answer = input.nextLine();
+			}
+			if (answer.equalsIgnoreCase("no")) {
+				System.out
+						.println("That's alright, not everyone likes the new tech-like music.");
+				System.out.println();
+				System.out
+						.println("Let's move on to the next part of the survey.");
+				System.out.println();
+			}
+
+			while (answer.equalsIgnoreCase("yes")) {
+
+				System.out.print("Enter the number of the song: ");
+				answer = input.nextLine();
+
+				if (!answer.equalsIgnoreCase("1")
+						&& !answer.equalsIgnoreCase("2")
+						&& !answer.equalsIgnoreCase("3")
+						&& !answer.equalsIgnoreCase("4")
+						&& !answer.equalsIgnoreCase("5")
+						&& !answer.equalsIgnoreCase("6")
+						&& !answer.equalsIgnoreCase("7")
+						&& !answer.equalsIgnoreCase("8")
+						&& !answer.equalsIgnoreCase("9")
+						&& !answer.equalsIgnoreCase("10")) {
+					System.out
+							.println("Error! You must enter either: 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10");
+					System.out.println();
+					System.out.print("Would you like to try again? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("1")) {
+					songlist.add(song1);
+					System.out.print("You have added '" + song1
+							+ "' to your music list.");
+					songs.remove(song1);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+
+				}
+				if (answer.equalsIgnoreCase("2")) {
+					songlist.add(song2);
+					System.out.print("You have added '" + song2
+							+ "' to your music list.");
+					songs.remove(song2);
+					System.out.println();
+					System.out
+							.print("Would you like to add another?(enter yes or no) ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("3")) {
+					songlist.add(song3);
+					System.out.print("You have added '" + song3
+							+ "' to your music list.");
+					songs.remove(song3);
+					System.out.println();
+					System.out
+							.print("Would you like to add another?(enter yes or no) ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("4")) {
+					songlist.add(song4);
+					System.out.print("You have added '" + song4
+							+ "' to your music list.");
+					songs.remove(song4);
+					System.out.println();
+					System.out
+							.print("Would you like to add another?(enter yes or no) ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("5")) {
+					songlist.add(song5);
+					System.out.print("You have added '" + song5
+							+ "' to your music list.");
+					songs.remove(song5);
+					System.out.println();
+					System.out
+							.print("Would you like to add another?(enter yes or no) ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("6")) {
+					songlist.add(song6);
+					System.out.print("You have added '" + song6
+							+ "' to your music list.");
+					songs.remove(song6);
+					System.out.println();
+					System.out
+							.print("Would you like to add another?(enter yes or no) ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("7")) {
+					songlist.add(song7);
+					System.out.print("You have added '" + song7
+							+ "' to your music list.");
+					songs.remove(song7);
+					System.out.println();
+					System.out
+							.print("Would you like to add another?(enter yes or no) ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("8")) {
+					songlist.add(song8);
+					System.out.print("You have added '" + song8
+							+ "' to your music list.");
+					songs.remove(song8);
+					System.out.println();
+					System.out
+							.print("Would you like to add another? (enter yes or no)");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("9")) {
+					songlist.add(song9);
+					System.out.print("You have added '" + song9
+							+ "' to your music list.");
+					songs.remove(song9);
+					System.out.println();
+					System.out
+							.print("Would you like to add another?(enter yes or no) ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("10")) {
+					songlist.add(song10);
+					System.out.print("You have added '" + song10
+							+ "' to your music list.");
+					songs.remove(song10);
+					System.out.println();
+					System.out
+							.print("Would you like to add another? (enter yes or no)");
+					answer = input.nextLine();
+				}
+
+				else if (answer.equalsIgnoreCase("no")) {
+					System.out
+							.println("Ok, the songs in your songlist currently are: ");
+					System.out.println(songlist);
+					System.out.println();
+					System.out
+							.println("Let's move on to the next part of the survey.");
+					System.out.println();
+
+				}
+
+			}
+
+			ArrayList<String> seventies = new ArrayList<String>();
+			String seventy1 = "Stairway To Heaven";
+			String seventy2 = "I Will Survive";
+			String seventy3 = "Play That Funky Music";
+			String seventy4 = "Sweet Home Alabama";
+			String seventy5 = "Lean On Me";
+			String seventy6 = "That's the Way I Like It";
+			String seventy7 = "Dream On";
+
+			seventies.add(seventy1);
+			seventies.add(seventy2);
+			seventies.add(seventy3);
+			seventies.add(seventy4);
+			seventies.add(seventy5);
+			seventies.add(seventy6);
+			seventies.add(seventy7);
+
+			ArrayList<String> eighty = new ArrayList<String>();
+			String eighty1 = "Funkytown";
+			String eighty2 = "Sweet Dreams are Made of These";
+			String eighty3 = "Tainted Love";
+			String eighty4 = "Electric Slide";
+			String eighty5 = "Mony Mony";
+			String eighty6 = "I Wanna Dance with Somebody";
+			String eighty7 = "Wild Thing";
+
+			eighty.add(eighty1);
+			eighty.add(eighty2);
+			eighty.add(eighty3);
+			eighty.add(eighty4);
+			eighty.add(eighty5);
+			eighty.add(eighty6);
+			eighty.add(eighty7);
+
+			ArrayList<String> ninety = new ArrayList<String>();
+			String ninety1 = "Can't touch this";
+			String ninety2 = "This is How We Do It";
+
+			ninety.add(ninety1);
+			ninety.add(ninety2);
+
+			ArrayList<String> twothousand = new ArrayList<String>();
+			String twothousand1 = "I Gotta Feeling";
+			String twothousand2 = "Since you been gone";
+			String twothousand3 = "Single Ladies";
+			String twothousand4 = "Poker Face";
+			String twothousand5 = "Who Let the Dogs Out";
+
+			twothousand.add(twothousand1);
+			twothousand.add(twothousand2);
+			twothousand.add(twothousand3);
+			twothousand.add(twothousand4);
+			twothousand.add(twothousand5);
+
+			System.out
+					.println("There a some popular songs from the 70's. Here are a few of them: ");
+			System.out.println();
+			for (int length = 0; length < songs.size(); length++) {
+				for (int n = 1; n <= 7; n++) {
+					System.out.println(n +". "+ songs.get(l));
+					// System.out.println();
+				}			System.out.println();
+			System.out
+					.print("Do you like any of these songs?(enter yes or no) ");
+			answer = input.nextLine();
+			while (!answer.equalsIgnoreCase("yes")
+					&& !answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("Error, You must Enter yes or no.\nDo you like any of these songs? ");
+				answer = input.nextLine();
+			}
+
+			if (answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("That's alright not everyone likes the 70's.\nLet's move on to the next part of the survey.");
+				System.out.println();
+			}
+			while (answer.equalsIgnoreCase("yes")) {
+
+				System.out.print("Enter the number of the song: ");
+				answer = input.nextLine();
+				while (!answer.equalsIgnoreCase("1")
+						&& !answer.equalsIgnoreCase("2")
+						&& !answer.equalsIgnoreCase("3")
+						&& !answer.equalsIgnoreCase("4")
+						&& !answer.equalsIgnoreCase("5")
+						&& !answer.equalsIgnoreCase("6")
+						&& !answer.equalsIgnoreCase("7")) {
+					System.out
+							.println("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7");
+					System.out.println();
+					System.out
+							.print("Would you like to try again(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("1")) {
+					songlist.add(seventy1);
+					System.out.print("You have added '" + seventy1
+							+ "' to your music list.");
+					seventies.remove(seventy1);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("2")) {
+					songlist.add(seventy2);
+					System.out.print("You have added '" + seventy2
+							+ "' to your music list.");
+					seventies.remove(seventy2);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("3")) {
+					songlist.add(seventy3);
+					System.out.print("You have added '" + seventy3
+							+ "' to your music list.");
+					seventies.remove(seventy3);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("4")) {
+					songlist.add(seventy4);
+					System.out.print("You have added '" + seventy4
+							+ "' to your music list.");
+					seventies.remove(seventy4);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("5")) {
+					songlist.add(seventy5);
+					System.out.print("You have added '" + seventy5
+							+ "' to your music list.");
+					seventies.remove(seventy5);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("6")) {
+					songlist.add(seventy6);
+					System.out.print("You have added '" + seventy6
+							+ "' to your music list.");
+					seventies.remove(seventy6);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("7")) {
+					songlist.add(seventy7);
+					System.out.print("You have added '" + seventy7
+							+ "' to your music list.");
+					seventies.remove(seventy7);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+
+				if (answer.equalsIgnoreCase("no")) {
+					System.out.println("Ok, the songs in your list now are:  ");
+					System.out.println(songlist);
+					System.out.println();
+
+				}
+			}
+
+			System.out.println("Here's some songs of the 80's: ");
+			System.out.println();
+			for (int size = 0; size < songs.size(); size++) {
+				for (int n = 1; n <= 10; n++) {
+					System.out.println(n +". "+ songs.get(size));
+					// System.out.println();
+				}
+			System.out.println();
+			System.out.print("Do you like any of these(enter yes or no)? ");
+			answer = input.nextLine();
+			while (!answer.equalsIgnoreCase("yes")
+					&& !answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
+				answer = input.nextLine();
+			}
+			if (answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("That's alright not everyone likes the 80's.\nLet's move on to the next part of the survey.");
+				System.out.println();
+			}
+
+			while (answer.equalsIgnoreCase("yes")) {
+				System.out.print("Enter the number of the song: ");
+				answer = input.nextLine();
+
+				if (!answer.equalsIgnoreCase("1")
+						&& !answer.equalsIgnoreCase("2")
+						&& !answer.equalsIgnoreCase("3")
+						&& !answer.equalsIgnoreCase("4")
+						&& !answer.equalsIgnoreCase("5")
+						&& !answer.equalsIgnoreCase("6")
+						&& !answer.equalsIgnoreCase("7")) {
+					System.out
+							.println("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7");
+					System.out.println();
+					System.out
+							.print("Would you like to try again(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("1")) {
+					songlist.add(eighty1);
+					System.out.print("You have added '" + eighty1
+							+ "' to your music list.");
+					eighty.remove(eighty1);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("2")) {
+					songlist.add(eighty2);
+					System.out.print("You have added '" + eighty2
+							+ "' to your music list.");
+					eighty.remove(eighty2);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("3")) {
+					songlist.add(eighty3);
+					System.out.print("You have added '" + eighty3
+							+ "' to your music list.");
+					eighty.remove(eighty3);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("4")) {
+					songlist.add(eighty4);
+					System.out.print("You have added '" + eighty4
+							+ "' to your music list.");
+					eighty.remove(eighty4);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("5")) {
+					songlist.add(eighty5);
+					System.out.print("You have added '" + eighty5
+							+ "' to your music list.");
+					eighty.remove(eighty5);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+
+				if (answer.equalsIgnoreCase("6")) {
+					songlist.add(eighty6);
+					System.out.print("You have added '" + eighty6
+							+ "' to your music list.");
+					eighty.remove(eighty6);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("7")) {
+					songlist.add(eighty7);
+					System.out.print("You have added '" + eighty7
+							+ "' to your music list.");
+					eighty.remove(eighty7);
+					System.out.println();
+					System.out
+							.print("Would you like to add another(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("no")) {
+					System.out
+							.println("Ok, the songs in your song list now are: ");
+					System.out.println(songlist);
+					System.out
+							.println("Let's move on to the next part of the survey.");
+					System.out.println();
+				}
+
+			}
+
+			System.out.println("Here's some songs of the 90's: ");
+			System.out.println();
+			for (int width = 0; width < songs.size(); width++) {
+				for (int n = 1; n <= 10; n++) {
+					System.out.println(n +". "+ songs.get(width));
+					// System.out.println();
+				}
+			System.out.print("Do you like any of these(enter yes or no)? ");
+			answer = input.nextLine();
+			if (!answer.equalsIgnoreCase("yes")
+					&& !answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("Error, You must Enter yes or no.\nDo you like any of these songs? ");
+				answer = input.nextLine();
+			}
+			if (answer.equalsIgnoreCase("no")) {
+				System.out
+						.println("That's alright not everyone likes the 90's.\nLet's move on to the next part of the survey.");
+				System.out.println();
+			}
+			while (answer.equalsIgnoreCase("yes")) {
+				System.out.print("Enter the number of the song: ");
+				answer = input.nextLine();
+
+				if (!answer.equalsIgnoreCase("1")
+						&& !answer.equalsIgnoreCase("2")) {
+					System.out.println("Error! You must enter either: 1 or 2");
+					System.out.println();
+					System.out
+							.print("Would you like to try again(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("1")) {
+					songlist.add(ninety1);
+					System.out.println("You have added '" + ninety1
+							+ "' to your music list. ");
+					ninety.remove(ninety1);
+					System.out.println();
+					System.out
+							.print("Would you like to add the other song as well(enter yes or no)? ");
+					answer = input.nextLine();
+					if (answer.equalsIgnoreCase("yes")) {
+						songlist.add(ninety2);
+						ninety.remove(ninety2);
+						break;
+					}
+					System.out.println();
+
+				}
+				if (answer.equalsIgnoreCase("2")) {
+					songlist.add(ninety2);
+					System.out.print("You have added '" + ninety2
+							+ "' to your music list.");
+					System.out
+							.print("Would you like to add the other song as well(enter yes or no)? ");
+					answer = input.nextLine();
+					if (answer.equalsIgnoreCase("yes")) {
+						songlist.add(ninety1);
+						ninety.remove(ninety1);
+						break;
+					}
+					System.out.println();
+
+				}
+				System.out.println("Ok, the songs in your songlist now are: "
+						+ songlist);
+				System.out.println();
+			}
+
+			System.out.println("Here's some songs of the 2000's: ");
+			System.out.println();
+			for (int height = 0; height < songs.size(); height++) {
+				for (int n = 1; n <= 10; n++) {
+					System.out.println(n +". "+ songs.get(height));
+					// System.out.println();
+				}
+			System.out.println();
+			System.out.print("Do you like any of these(enter yes or no)? ");
+			answer = input.nextLine();
+			if (!answer.equalsIgnoreCase("yes")
+					&& !answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("Error, You must Enter yes or no.\nDo you like any of these songs? ");
+				answer = input.nextLine();
+			}
+			if (answer.equalsIgnoreCase("no"))
+				System.out
+						.print("That's alright not everyone likes the 2000's.\nLet's move on to the next part of the survey.");
+			System.out.println();
+
+			while (answer.equalsIgnoreCase("yes")) {
+				System.out.print("Enter the number of the song: ");
+				answer = input.nextLine();
+
+				if (!answer.equalsIgnoreCase("1")
+						&& !answer.equalsIgnoreCase("2")
+						&& !answer.equalsIgnoreCase("3")
+						&& !answer.equalsIgnoreCase("4")
+						&& !answer.equalsIgnoreCase("5")) {
+					System.out
+							.println("Error! You must enter either: 1, 2, 3, 4, or 5");
+					System.out.println();
+					System.out
+							.print("Would you like to try again(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("1")) {
+					songlist.add(twothousand1);
+					System.out.print("You have added '" + twothousand1
+							+ "' to your music list.");
+					twothousand.remove(twothousand1);
+					System.out.println();
+					System.out
+							.print("Would you like to add another song(enter yes or no)? ");
+					answer = input.nextLine();
+				}
+				if (answer.equalsIgnoreCase("2")) {
+					songlist.add(twothousand2);
+					System.out.print("You have added '" + twothousand2
+							+ "' to your music list.");
+					twothousand.remove(twothousand2);
+					System.out.println();
+					System.out
+							.print("Would you like to add another song(enter yes or no)? ");
+					answer = input.nextLine();
+
+				}
+				if (answer.equalsIgnoreCase("3")) {
+					songlist.add(twothousand3);
+					System.out.print("You have added '" + twothousand3
+							+ "' to your music list.");
+					twothousand.remove(twothousand3);
+					System.out.println();
+					System.out
+							.print("Would you like to add another song(enter yes or no)? ");
+					answer = input.nextLine();
+
+				}
+				if (answer.equalsIgnoreCase("4")) {
+					songlist.add(twothousand4);
+					System.out.print("You have added '" + twothousand4
+							+ "' to your music list.");
+					twothousand.remove(twothousand4);
+					System.out.println();
+					System.out
+							.print("Would you like to add another song(enter yes or no)? ");
+					answer = input.nextLine();
+
+				}
+				if (answer.equalsIgnoreCase("5")) {
+					songlist.add(twothousand5);
+					System.out.print("You have added '" + twothousand5
+							+ "' to your music list.");
+					twothousand.remove(twothousand5);
+					System.out.println();
+					System.out
+							.print("Would you like to add another song(enter yes or no)? ");
+					answer = input.nextLine();
+
+				}
+
+				if (answer.equalsIgnoreCase("no")) {
+
+					System.out.println();
+				}
+			}
+
+			System.out.println("This is your songlist now: ");
+			System.out.println();
+			System.out.print(songlist);
+			System.out.println();
+			System.out
+					.print("Are there any more songs that you like that you would like to add(enter yes or no)? ");
+			answer = input.nextLine();
+			if (!answer.equalsIgnoreCase("yes")
+					&& !answer.equalsIgnoreCase("no")) {
+				System.out.print("Error, You must Enter yes or no. ");
+				System.out
+						.print("Are there any more songs that you like that you would like to add(enter yes or no)? ");
+				answer = input.nextLine();
+			}
+			if (answer.equalsIgnoreCase("no")) {
+				System.out
+						.print("Ok.\nLet's move on to the next part of the survey.");
+				System.out.println();
+			}
+			while (answer.equalsIgnoreCase("yes")) {
+				System.out
+						.print("What is the title of the song you want to add? ");
+				answer = input.nextLine();
+				songlist.add(answer);
+				System.out.print("You have added '" + answer
+						+ "' to your music list.");
+				System.out.println();
+				System.out.print("Would you like to add another song? ");
+				answer = input.nextLine();
+			}
+
+			System.out.println("The songs in your songlist are now: ");
+			for (int line = 0; line < songlist.size(); line++) {
+				System.out.println(songlist.get(line));
+				// System.out.println();
+			}
+			System.out.println();
+			new ArrayList<String>();
+			ArrayList<String> templist = new ArrayList<String>();
+
+			for (int i = 0; i < songlist.size(); i++) {
+				System.out
+						.print("Enter the title of the song you want in order from top (all time favorite) to bottom (last favorite): ");
+				String titleplacement = input.nextLine();
+				templist.add(titleplacement);
+				songlist.remove(titleplacement);
+				for (int line1 = 0; line1 < songlist.size(); line1++) {
+					System.out.println(songlist.get(line1));
+				}	
+			}
+			songlist = templist;
+			System.out.println("This is your new Songlist: ");
+			System.out.println(songlist);
+
+			}
+			}
+
