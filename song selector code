@@ -6,14 +6,13 @@ import javax.swing.JOptionPane;
 public class MusicSelector {
 
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
+		@SuppressWarnings({ "resource", "unused" })
 		Scanner input = new Scanner(System.in);
 		new ArrayList<String>();
 		ArrayList<String> songlist = new ArrayList<String>();
 		JOptionPane
-				.showInputDialog("Welcome to the Michigan Tech Winter Carnival Music Selector!(ENTER)");
-		JOptionPane.showInputDialog("Let's get started (ENTER) ");
-		System.out.println();
+				.showInputDialog("Welcome to the Michigan Tech Winter Carnival Music Selector!\nLet's get started (ENTER)");
+		String name = JOptionPane.showInputDialog("Enter your name: ") + ("'s");
 
 		String song1 = "Thinking Out Loud";
 		String song2 = "FourFiveSeconds";
@@ -39,26 +38,24 @@ public class MusicSelector {
 		songs.add(song9);
 		songs.add(song10);
 
-		JOptionPane
+		String answer = JOptionPane
 				.showInputDialog("This is the list of songs that were in the top 10 on iTunes hottest songs: \n"
-						+ songs + "\n (ENTER)");
+						+ songs
+						+ "\nDo you like any of these songs (enter yes or no)?");
 		int i = 0;
-		int n  =1;
-		
-		while ( i < songs.size()){
-			while ( n <= 10){
-				
-				System.out.println(n + ". " +songs.get(i));
+		int n = 1;
+		int count = 0;
+		System.out.print("iTunes Top 10 list: \n");
+		while (i < songs.size()) {
+			while (n <= 10) {
+
+				System.out.println(n + ". " + songs.get(i));
 				i++;
 				n++;
 			}
 		}
-		
 
 		System.out.println();
-
-		String answer = JOptionPane
-				.showInputDialog("Do you like any of these songs (enter yes or no)? ");
 
 		while (!answer.equalsIgnoreCase("yes")
 				&& !answer.equalsIgnoreCase("no")) {
@@ -68,11 +65,8 @@ public class MusicSelector {
 		}
 		if (answer.equalsIgnoreCase("no")) {
 			JOptionPane
-					.showInputDialog("That's alright, not everyone likes the new tech-like music. (ENTER)");
-			System.out.println();
-			JOptionPane
-					.showInputDialog("Let's move on to the next part of the survey. (ENTER)");
-			System.out.println();
+					.showInputDialog("That's alright, not everyone likes the new tech-like music.\nLet's move on to the next part of the survey. (ENTER)");
+
 		}
 
 		while (answer.equalsIgnoreCase("yes")) {
@@ -90,124 +84,129 @@ public class MusicSelector {
 					&& !answer.equalsIgnoreCase("9")
 					&& !answer.equalsIgnoreCase("10")) {
 				JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10"
-								+ " (ENTER)");
-				System.out.println();
+						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10\n"
+								+ "Would you like to try again? ");
 
-				answer = JOptionPane
-						.showInputDialog("Would you like to try again? ");
 			}
 			if (answer.equalsIgnoreCase("1")) {
 				songlist.add(song1);
-				JOptionPane.showInputDialog("You have added '" + song1
-						+ "' to your music list. (ENTER)");
-				songs.remove(song1);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ song1
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				songs.remove(song1);
+				count++;
 
 			}
 			if (answer.equalsIgnoreCase("2")) {
 				songlist.add(song2);
-				JOptionPane.showInputDialog("You have added '" + song2
-						+ "' to your music list. (ENTER)");
-				songs.remove(song2);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another?(enter yes or no) ");
+						.showInputDialog("You have added '"
+								+ song2
+								+ "' to your music list.\nWould you like to add another?(enter yes or no) ");
+				songs.remove(song2);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("3")) {
 				songlist.add(song3);
-				JOptionPane.showInputDialog("You have added '" + song3
-						+ "' to your music list. (ENTER)");
-				songs.remove(song3);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another?(enter yes or no) ");
+						.showInputDialog("You have added '"
+								+ song3
+								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
+				songs.remove(song3);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("4")) {
 				songlist.add(song4);
-				JOptionPane.showInputDialog("You have added '" + song4
-						+ "' to your music list. (ENTER)");
-				songs.remove(song4);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another?(enter yes or no) ");
+						.showInputDialog("You have added '"
+								+ song4
+								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
+				songs.remove(song4);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("5")) {
 				songlist.add(song5);
-				JOptionPane.showInputDialog("You have added '" + song5
-						+ "' to your music list. (ENTER)");
+				answer = JOptionPane
+						.showInputDialog("You have added '"
+								+ song5
+								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
 				songs.remove(song5);
 				System.out.println();
+				count++;
 
-				answer = JOptionPane
-						.showInputDialog("Would you like to add another?(enter yes or no) ");
 			}
 			if (answer.equalsIgnoreCase("6")) {
 				songlist.add(song6);
-				JOptionPane.showInputDialog("You have added '" + song6
-						+ "' to your music list. (ENTER)");
-				songs.remove(song6);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another?(enter yes or no) ");
+						.showInputDialog("You have added '"
+								+ song6
+								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
+				songs.remove(song6);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("7")) {
 				songlist.add(song7);
-				JOptionPane.showInputDialog("You have added '" + song7
-						+ "' to your music list. (ENTER)");
-				songs.remove(song7);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another?(enter yes or no) ");
+						.showInputDialog("You have added '"
+								+ song7
+								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
+				songs.remove(song7);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("8")) {
 				songlist.add(song8);
-				JOptionPane.showInputDialog("You have added '" + song8
-						+ "' to your music list. (ENTER)");
-				songs.remove(song8);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another? (enter yes or no)");
+						.showInputDialog("You have added '"
+								+ song8
+								+ "' to your music list.\nWould you like to add another? (enter yes or no)");
+				songs.remove(song8);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("9")) {
 				songlist.add(song9);
-				JOptionPane.showInputDialog("You have added '" + song9
-						+ "' to your music list. (ENTER)");
-				songs.remove(song9);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another?(enter yes or no) ");
+						.showInputDialog("You have added '"
+								+ song9
+								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
+				songs.remove(song9);
+				count++;
 			}
 			if (answer.equalsIgnoreCase("10")) {
 				songlist.add(song10);
-				JOptionPane.showInputDialog("You have added '" + song10
-						+ "' to your music list. (ENTER)");
-				songs.remove(song10);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another? (enter yes or no)");
+						.showInputDialog("You have added '"
+								+ song10
+								+ "' to your music list.\nWould you like to add another? (enter yes or no)");
+				songs.remove(song10);
+				count++;
+
 			}
 
 			else if (answer.equalsIgnoreCase("no")) {
+				i = 0;
+				n = 1;
+				System.out.print(name + " Songlist:  \n");
+				while (i < songlist.size()) {
+					while (n <= count) {
+
+						System.out.println(n + ". " + songlist.get(i));
+						i++;
+						n++;
+					}
+				}
+				System.out.println();
+
 				JOptionPane
 						.showInputDialog("Ok, the songs in your songlist currently are: \n"
-								+ songlist + "\n (ENTER)");
-
-				System.out.println();
-				JOptionPane
-						.showInputDialog("Let's move on to the next part of the survey. (ENTER)");
-				System.out.println();
+								+ songlist
+								+ "\nLet's move on to the next part of the survey. (ENTER)");
 
 			}
 
@@ -267,23 +266,23 @@ public class MusicSelector {
 		twothousand.add(twothousand4);
 		twothousand.add(twothousand5);
 
-		JOptionPane
+		answer = JOptionPane
 				.showInputDialog("There a some popular songs from the 70's. Here are a few of them: \n"
-						+ seventies + "\n (ENTER)");
+						+ seventies
+						+ "\nDo you like any of these songs?(enter yes or no) ");
 		i = 0;
 		n = 1;
-		while ( i < seventies.size()){
-			while ( n <= 7){
-				
-				System.out.println(n + ". " +seventies.get(i));
+		System.out.print("Seventies music list:  \n");
+		while (i < seventies.size()) {
+			while (n <= 7) {
+
+				System.out.println(n + ". " + seventies.get(i));
 				i++;
 				n++;
 			}
 		}
 		System.out.println();
 
-		answer = JOptionPane
-				.showInputDialog("Do you like any of these songs?(enter yes or no) ");
 		while (!answer.equalsIgnoreCase("yes")
 				&& !answer.equalsIgnoreCase("no")) {
 
@@ -294,7 +293,7 @@ public class MusicSelector {
 		if (answer.equalsIgnoreCase("no")) {
 			JOptionPane
 					.showInputDialog("That's alright not everyone likes the 70's.\nLet's move on to the next part of the survey. (ENTER)");
-			System.out.println();
+
 		}
 		while (answer.equalsIgnoreCase("yes")) {
 
@@ -307,110 +306,118 @@ public class MusicSelector {
 					&& !answer.equalsIgnoreCase("5")
 					&& !answer.equalsIgnoreCase("6")
 					&& !answer.equalsIgnoreCase("7")) {
-				JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7"
-								+ " (ENTER)");
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to try again(enter yes or no)? ");
+						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7\n"
+								+ " Would you like to try again(enter yes or no)?");
+
 			}
 			if (answer.equalsIgnoreCase("1")) {
 				songlist.add(seventy1);
-				JOptionPane.showInputDialog("You have added '" + seventy1
-						+ "' to your music list. (ENTER)");
-				seventies.remove(seventy1);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ seventy1
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				seventies.remove(seventy1);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("2")) {
 				songlist.add(seventy2);
-				JOptionPane.showInputDialog("You have added '" + seventy2
-						+ "' to your music list. (ENTER)");
-				seventies.remove(seventy2);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ seventy2
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				seventies.remove(seventy2);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("3")) {
 				songlist.add(seventy3);
-				JOptionPane.showInputDialog("You have added '" + seventy3
-						+ "' to your music list. (ENTER)");
-				seventies.remove(seventy3);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ seventy3
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				seventies.remove(seventy3);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("4")) {
 				songlist.add(seventy4);
-				JOptionPane.showInputDialog("You have added '" + seventy4
-						+ "' to your music list. (ENTER)");
-				seventies.remove(seventy4);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ seventy4
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				seventies.remove(seventy4);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("5")) {
 				songlist.add(seventy5);
-				JOptionPane.showInputDialog("You have added '" + seventy5
-						+ "' to your music list. (ENTER)");
-				seventies.remove(seventy5);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ seventy5
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				seventies.remove(seventy5);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("6")) {
 				songlist.add(seventy6);
-				JOptionPane.showInputDialog("You have added '" + seventy6
-						+ "' to your music list. (ENTER)");
-				seventies.remove(seventy6);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ seventy6
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				seventies.remove(seventy6);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("7")) {
 				songlist.add(seventy7);
-				JOptionPane.showInputDialog("You have added '" + seventy7
-						+ "' to your music list. (ENTER)");
-				seventies.remove(seventy7);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ seventy7
+								+ "' to your music list.Would you like to add another(enter yes or no)?");
+				seventies.remove(seventy7);
+				count++;
+
 			}
 
 			if (answer.equalsIgnoreCase("no")) {
+				i = 0;
+				n = 1;
+				System.out.print(name + " Songlist:  \n");
+				while (i < songlist.size()) {
+					while (n <= count) {
+
+						System.out.println(n + ". " + songlist.get(i));
+						i++;
+						n++;
+					}
+				}
+				System.out.println();
 				JOptionPane
 						.showInputDialog("Ok, the songs in your list now are:  \n"
 								+ songlist + "\n (ENTER)");
-				System.out.println();
 
 			}
 		}
 
-		JOptionPane.showInputDialog("Here's some songs of the 80's: \n"
-				+ eighty + "\n (ENTER)");
+		answer = JOptionPane
+				.showInputDialog("Here's some songs of the 80's: \n" + eighty
+						+ "\nDo you like any of these(enter yes or no)? ");
 		i = 0;
 		n = 1;
-		while ( i < eighty.size()){
-			while ( n <= 7){
-				
-				System.out.println(n + ". " +eighty.get(i));
+		System.out.print("Eighties music list:  \n");
+		while (i < eighty.size()) {
+			while (n <= 7) {
+
+				System.out.println(n + ". " + eighty.get(i));
 				i++;
 				n++;
 			}
 		}
 		System.out.println();
 
-		answer = JOptionPane
-				.showInputDialog("Do you like any of these(enter yes or no)? ");
 		while (!answer.equalsIgnoreCase("yes")
 				&& !answer.equalsIgnoreCase("no")) {
 
@@ -420,7 +427,7 @@ public class MusicSelector {
 		if (answer.equalsIgnoreCase("no")) {
 			JOptionPane
 					.showInputDialog("That's alright not everyone likes the 80's.\nLet's move on to the next part of the survey. (ENTER)");
-			System.out.println();
+
 		}
 
 		while (answer.equalsIgnoreCase("yes")) {
@@ -434,114 +441,121 @@ public class MusicSelector {
 					&& !answer.equalsIgnoreCase("5")
 					&& !answer.equalsIgnoreCase("6")
 					&& !answer.equalsIgnoreCase("7")) {
-				JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7"
-								+ " (ENTER)");
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to try again(enter yes or no)? ");
+						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7\n"
+								+ "Would you like to try again(enter yes or no)?");
+
 			}
 			if (answer.equalsIgnoreCase("1")) {
 				songlist.add(eighty1);
-				JOptionPane.showInputDialog("You have added '" + eighty1
-						+ "' to your music list. (ENTER)");
-				eighty.remove(eighty1);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ eighty1
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				eighty.remove(eighty1);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("2")) {
 				songlist.add(eighty2);
-				JOptionPane.showInputDialog("You have added '" + eighty2
-						+ "' to your music list. (ENTER)");
-				eighty.remove(eighty2);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ eighty2
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				eighty.remove(eighty2);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("3")) {
 				songlist.add(eighty3);
-				JOptionPane.showInputDialog("You have added '" + eighty3
-						+ "' to your music list. (ENTER)");
-				eighty.remove(eighty3);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ eighty3
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				eighty.remove(eighty3);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("4")) {
 				songlist.add(eighty4);
-				JOptionPane.showInputDialog("You have added '" + eighty4
-						+ "' to your music list. (ENTER)");
-				eighty.remove(eighty4);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ eighty4
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				eighty.remove(eighty4);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("5")) {
 				songlist.add(eighty5);
-				JOptionPane.showInputDialog("You have added '" + eighty5
-						+ "' to your music list. (ENTER)");
-				eighty.remove(eighty5);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ eighty5
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				eighty.remove(eighty5);
+				count++;
+
 			}
 
 			if (answer.equalsIgnoreCase("6")) {
 				songlist.add(eighty6);
-				JOptionPane.showInputDialog("You have added '" + eighty6
-						+ "' to your music list. (ENTER)");
-				eighty.remove(eighty6);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ eighty6
+								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
+				eighty.remove(eighty6);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("7")) {
 				songlist.add(eighty7);
-				JOptionPane.showInputDialog("You have added '" + eighty7
-						+ "' to your music list. (ENTER)");
-				eighty.remove(eighty7);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ eighty7
+								+ "' to your music list.Would you like to add another(enter yes or no)?");
+				eighty.remove(eighty7);
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("no")) {
+
+				i = 0;
+				n = 1;
+				System.out.print(name + " Songlist:  \n");
+				while (i < songlist.size()) {
+					while (n <= count) {
+
+						System.out.println(n + ". " + songlist.get(i));
+						i++;
+						n++;
+					}
+				}
+				System.out.println();
 				JOptionPane
 						.showInputDialog("Ok, the songs in your song list now are: \n"
-								+ songlist + "\n (ENTER)");
+								+ songlist
+								+ "\nLet's move on to the next part of the survey. (ENTER)");
 
-				JOptionPane
-						.showInputDialog("Let's move on to the next part of the survey. (ENTER)");
-				System.out.println();
 			}
 
 		}
 
-		JOptionPane.showInputDialog("Here's some songs of the 90's: \n"
-				+ ninety + "\n (ENTER)");
+		answer = JOptionPane
+				.showInputDialog("Here's some songs of the 90's: \n" + ninety
+						+ "\nDo you like any of these (enter yes or no)?");
 		i = 0;
 		n = 1;
-		while ( i < ninety.size()){
-			while ( n <= 2){
-				
-				System.out.println(n + ". " +ninety.get(i));
+		System.out.print("Nineties music list:  \n");
+		while (i < ninety.size()) {
+			while (n <= 2) {
+
+				System.out.println(n + ". " + ninety.get(i));
 				i++;
 				n++;
 			}
 		}
-		
 		System.out.println();
 
-		answer = JOptionPane
-				.showInputDialog("Do you like any of these (enter yes or no)? ");
 		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
 
 			answer = JOptionPane
@@ -558,69 +572,79 @@ public class MusicSelector {
 					.showInputDialog("Enter the number of the song: ");
 
 			if (!answer.equalsIgnoreCase("1") && !answer.equalsIgnoreCase("2")) {
-				JOptionPane
-						.showInputDialog("Error! You must enter either: 1 or 2"
-								+ " (ENTER)");
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to try again(enter yes or no)? ");
+						.showInputDialog("Error! You must enter either: 1 or 2\nWould you like to try again(enter yes or no)?");
+
 			}
 			if (answer.equalsIgnoreCase("1")) {
 				songlist.add(ninety1);
-				JOptionPane.showInputDialog("You have added '" + ninety1
-						+ "' to your music list. (ENTER)");
-				ninety.remove(ninety1);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add the other song as well(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ ninety1
+								+ "' to your music list.\nWould you like to add the other song as well(enter yes or no)?");
+				ninety.remove(ninety1);
+				count++;
+
 				if (answer.equalsIgnoreCase("yes")) {
 					songlist.add(ninety2);
 					ninety.remove(ninety2);
+					count++;
 					break;
 				}
-				System.out.println();
 
 			}
 			if (answer.equalsIgnoreCase("2")) {
 				songlist.add(ninety2);
-				JOptionPane.showInputDialog("You have added '" + ninety2
-						+ "' to your music list. (ENTER)");
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add the other song as well(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ ninety2
+								+ "' to your music list.\nWould you like to add the other song as well(enter yes or no)?");
+				count++;
+
 				if (answer.equalsIgnoreCase("yes")) {
 					songlist.add(ninety1);
+					count++;
 					ninety.remove(ninety1);
 					break;
 				}
-				System.out.println();
 
 			}
+			i = 0;
+			n = 1;
+			System.out.print(name + " Songlist:  \n");
+			while (i < songlist.size()) {
+				while (n <= count) {
+
+					System.out.println(n + ". " + songlist.get(i));
+					i++;
+					n++;
+				}
+			}
+			System.out.println();
+
 			JOptionPane
 					.showInputDialog("Ok, the songs in your songlist now are: \n"
 							+ songlist + "\n (ENTER)");
-			System.out.println();
+
 		}
 
-		JOptionPane.showInputDialog("Here's some songs of the 2000's: \n"
-				+ twothousand + "\n (ENTER)");
+		answer = JOptionPane
+				.showInputDialog("Here's some songs of the 2000's: \n"
+						+ twothousand
+						+ "\nDo you like any of these(enter yes or no)? ");
 		i = 0;
 		n = 1;
-		while ( i < twothousand.size()){
-			while ( n <= 5){
-				
-				System.out.println(n + ". " +twothousand.get(i));
+		System.out.print("Twothousands music list:  \n");
+		while (i < twothousand.size()) {
+			while (n <= 5) {
+
+				System.out.println(n + ". " + twothousand.get(i));
 				i++;
 				n++;
 			}
 		}
-
 		System.out.println();
 
-		answer = JOptionPane
-				.showInputDialog("Do you like any of these(enter yes or no)? ");
 		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
 
 			answer = JOptionPane
@@ -629,7 +653,6 @@ public class MusicSelector {
 		if (answer.equalsIgnoreCase("no"))
 			JOptionPane
 					.showInputDialog("That's alright not everyone likes the 2000's.\nLet's move on to the next part of the survey. (ENTER)");
-		System.out.println();
 
 		while (answer.equalsIgnoreCase("yes")) {
 
@@ -640,126 +663,130 @@ public class MusicSelector {
 					&& !answer.equalsIgnoreCase("3")
 					&& !answer.equalsIgnoreCase("4")
 					&& !answer.equalsIgnoreCase("5")) {
-				JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, or 5"
-								+ " (ENTER)");
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to try again(enter yes or no)? ");
+						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, or 5\nWould you like to try again(enter yes or no)?"
+								+ " (ENTER)");
+
 			}
 			if (answer.equalsIgnoreCase("1")) {
 				songlist.add(twothousand1);
-				JOptionPane.showInputDialog("You have added '" + twothousand1
-						+ "' to your music list. (ENTER)");
+				answer = JOptionPane
+						.showInputDialog("You have added '"
+								+ twothousand1
+								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
 				twothousand.remove(twothousand1);
-				System.out.println();
-				JOptionPane
-						.showInputDialog("Would you like to add another song(enter yes or no)? ");
-				answer = input.nextLine();
+				count++;
+
 			}
 			if (answer.equalsIgnoreCase("2")) {
 				songlist.add(twothousand2);
-				JOptionPane.showInputDialog("You have added '" + twothousand2
-						+ "' to your music list. (ENTER)");
-				twothousand.remove(twothousand2);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another song(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ twothousand2
+								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
+				twothousand.remove(twothousand2);
+				count++;
 
 			}
 			if (answer.equalsIgnoreCase("3")) {
 				songlist.add(twothousand3);
-				JOptionPane.showInputDialog("You have added '" + twothousand3
-						+ "' to your music list. (ENTER)");
-				twothousand.remove(twothousand3);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another song(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ twothousand3
+								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
+				twothousand.remove(twothousand3);
+				count++;
 
 			}
 			if (answer.equalsIgnoreCase("4")) {
 				songlist.add(twothousand4);
-				JOptionPane.showInputDialog("You have added '" + twothousand4
-						+ "' to your music list. (ENTER)");
+				answer = JOptionPane
+						.showInputDialog("You have added '"
+								+ twothousand4
+								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
 				twothousand.remove(twothousand4);
-				System.out.println();
-				
-				answer = JOptionPane.showInputDialog("Would you like to add another song(enter yes or no)? ");
+				count++;
 
 			}
 			if (answer.equalsIgnoreCase("5")) {
 				songlist.add(twothousand5);
-				JOptionPane.showInputDialog("You have added '" + twothousand5
-						+ "' to your music list. (ENTER)");
-				twothousand.remove(twothousand5);
-				System.out.println();
-
 				answer = JOptionPane
-						.showInputDialog("Would you like to add another song(enter yes or no)? ");
+						.showInputDialog("You have added '"
+								+ twothousand5
+								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
+				twothousand.remove(twothousand5);
+				count++;
 
 			}
 
 			if (answer.equalsIgnoreCase("no")) {
+				i = 0;
+				n = 1;
+				System.out.print(name + " Songlist:  \n");
+				while (i < songlist.size()) {
+					while (n <= count) {
 
+						System.out.println(n + ". " + songlist.get(i));
+						i++;
+						n++;
+					}
+				}
 				JOptionPane.showInputDialog("Ok, let's move on. (ENTER)");
 			}
 		}
-
-		JOptionPane.showInputDialog("This is your songlist now: \n" + songlist
-				+ "\n (ENTER)");
-		System.out.println();
 
 		System.out.println();
 
 		answer = JOptionPane
 				.showInputDialog("Are there any more songs that you like that you would like to add (enter yes or no)? ");
 		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
-			JOptionPane
-					.showInputDialog("Error, You must Enter yes or no. (ENTER)");
-
 			answer = JOptionPane
-					.showInputDialog("Are there any more songs that you like that you would like to add (enter yes or no)? ");
+					.showInputDialog("Error, You must Enter yes or no.\nAre there any more songs that you like that you would like to add (enter yes or no)?");
+
 		}
 		if (answer.equalsIgnoreCase("no")) {
 			JOptionPane
 					.showInputDialog("Ok.\nLet's move on to the next part of the survey. (ENTER)");
-			System.out.println();
+
 		}
 		while (answer.equalsIgnoreCase("yes")) {
 			answer = JOptionPane.showInputDialog("Enter Title Here: ");
 			songlist.add(answer);
-			JOptionPane.showInputDialog("You have added '" + answer
-					+ "' to your music list. (ENTER)");
-			System.out.println();
+			count++;
+			i = 0;
+			n = 1;
+			System.out.print(name + " Songlist:  \n");
+			while (i < songlist.size()) {
+				while (n <= count) {
+
+					System.out.println(n + ". " + songlist.get(i));
+					i++;
+					n++;
+				}
+			}
 			answer = JOptionPane
-					.showInputDialog("Would you like to add another song? ");
+					.showInputDialog("You have added '"
+							+ answer
+							+ "' to your music list.\nWould you like to add another song? ");
 
 		}
+		i = 0;
+		n = 1;
+		System.out.print(name + " Songlist:  \n");
+		while (i < songlist.size()) {
+			while (n <= count) {
+
+				System.out.println(n + ". " + songlist.get(i));
+				i++;
+				n++;
+			}
+			System.out.println();
+
+		}
+		System.out.println();
 
 		JOptionPane.showInputDialog("The songs in your songlist are now: \n"
 				+ songlist + "\n (ENTER)");
-
-		System.out.println();
-		new ArrayList<String>();
-		ArrayList<String> templist = new ArrayList<String>();
-
-		for ( i = 0; i < songlist.size(); i++) {
-
-			String titleplacement = JOptionPane
-					.showInputDialog("Enter the title of the song you want (in exact case and spacing)\n in order from top "
-							+ "(all time favorite) to bottom (last favorite): ");
-			templist.add(titleplacement);
-			songlist.remove(titleplacement);
-			for (int line1 = 0; line1 < songlist.size(); line1++) {
-				JOptionPane.showInputDialog(songlist.get(line1));
-			}
-		}
-		songlist = templist;
-		JOptionPane.showInputDialog("This is your new Songlist: \n" + songlist
-				+ "\n (ENTER)");
 
 	}
 
