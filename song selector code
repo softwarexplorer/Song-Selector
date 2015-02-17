@@ -1,11 +1,17 @@
+import java.io.Closeable;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 public class MusicSelector {
 
-	public static void main(String[] args) {
+	private static final JComponent output = null;
+
+	public static void main(String[] args) throws IOException {
 		@SuppressWarnings({ "resource", "unused" })
 		Scanner input = new Scanner(System.in);
 		new ArrayList<String>();
@@ -13,8 +19,8 @@ public class MusicSelector {
 		JOptionPane
 				.showInputDialog("Welcome to the Michigan Tech Winter Carnival Music Selector!\nLet's get started (ENTER)");
 		String name = JOptionPane.showInputDialog("Enter your name: ");
-		String name1 = name+ ("'s");
-		
+		String name1 = name + ("'s");
+
 		String song1 = "Thinking Out Loud";
 		String song2 = "FourFiveSeconds";
 		String song3 = "Uptown Funk";
@@ -58,8 +64,7 @@ public class MusicSelector {
 
 		System.out.println();
 
-		if (!answer.equalsIgnoreCase("yes")
-				&& !answer.equalsIgnoreCase("no")) {
+		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
 			answer = JOptionPane
 					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
 
@@ -372,7 +377,7 @@ public class MusicSelector {
 								+ " Would you like to try again(enter yes or no)?");
 				while (!answer.equalsIgnoreCase("yes")
 						&& !answer.equalsIgnoreCase("no")) {
-						answer = JOptionPane
+					answer = JOptionPane
 							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
 
 				}
@@ -796,7 +801,8 @@ public class MusicSelector {
 		}
 		System.out.println();
 
-		while (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
+		while (!answer.equalsIgnoreCase("yes")
+				&& !answer.equalsIgnoreCase("no")) {
 
 			answer = JOptionPane
 					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs? ");
@@ -931,6 +937,7 @@ public class MusicSelector {
 			count++;
 			i = 0;
 			n = 1;
+			System.out.println();
 			System.out.print(name1 + " Songlist:  \n");
 			while (i < songlist.size()) {
 				while (n <= count) {
@@ -951,43 +958,54 @@ public class MusicSelector {
 
 			}
 		}
-		
+
 		System.out.println();
 
 		JOptionPane.showInputDialog("The songs in your songlist are now: \n"
 				+ songlist + "\n (ENTER)");
 		String lastName = JOptionPane.showInputDialog("Enter your last name: ");
-		String middleIntitial = JOptionPane.showInputDialog("Enter your middle initial: ");
+		String middleIntitial = JOptionPane
+				.showInputDialog("Enter your middle initial: ");
 		answer = JOptionPane.showInputDialog("\t\t\tNew Message\n\n\n\n"
 				+ " To: Audio Engineering <aes-l@mtu.edu>\n"
 				+ " --------------------------------------\n"
 				+ " Cc:                                  \n"
 				+ " --------------------------------------\n"
 				+ " Subject:                             \n"
-				+ " --------------------------------------\n"
-				+ " From: " + name + " " + middleIntitial + ". " +  lastName + " - " + name.substring(0, 1).toLowerCase()+ 
-				middleIntitial.toLowerCase() + ". " +lastName.toLowerCase() + "@mtu.edu  \n"
-				+ " --------------------------------------\n"
-				+ " "+name1 + " Songlist.txt\t\t\t\t\t\tWould you like to send?\n"
-						+ "\t20KB");
-		if (!answer.equalsIgnoreCase("yes")
-				&& !answer.equalsIgnoreCase("no")) {
+				+ " --------------------------------------\n" + " From: "
+				+ name.substring(0, 1).toUpperCase()
+				+ name.substring(1).toLowerCase() + " "
+				+ middleIntitial.substring(0, 1).toUpperCase() + ". "
+				+ lastName.substring(0, 1).toUpperCase()
+				+ name.substring(1).toLowerCase() + " - "
+				+ name.substring(0, 1).toLowerCase()
+				+ middleIntitial.toLowerCase() + lastName.toLowerCase()
+				+ "@mtu.edu  \n" + " --------------------------------------\n"
+				+ " " + name1
+				+ " Songlist.txt\t\t\t\t\t\tWould you like to send?\n"
+				+ "\t20KB");
+		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
 			answer = JOptionPane
 					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
 
 		}
-		while (answer.equalsIgnoreCase("yes")){
+		while (answer.equalsIgnoreCase("yes")) {
 			JOptionPane.showInputDialog("Email Sent!");
 			break;
 		}
-		while (answer.equalsIgnoreCase("no")){
-			JOptionPane.showInputDialog("Ok, " + name1 + " Songlist is saved.");
+
+		while (answer.equalsIgnoreCase("no")) {
+			java.io.File file = new java.io.File(name1 + " Songlist.txt");
+			java.io.PrintWriter ouput = new java.io.PrintWriter(file);
+			java.io.File tempName1 = new java.io.File(name1);
+			java.io.PrintWriter output = new java.io.PrintWriter(file);
+			output.print(songlist);
+			output.close();
+			JOptionPane.showInputDialog("Your song list: " + name1 + " Songlist, has been saved as\n" + name1 + " Songlist.txt in 'Workspace' in the Music Selector folder");
 			break;
+
 		}
-	
-		}
-		
+
 	}
 
-
-
+}
