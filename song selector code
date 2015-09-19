@@ -1,1011 +1,635 @@
-import java.io.Closeable;
+package musicselector;
+
 import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
-public class MusicSelector {
+public class musicSelectorv2 {
+	static List<String> iTunesTopTen = new ArrayList<String>();
 
-	private static final JComponent output = null;
+	public void iTunes() {
 
-	public static void main(String[] args) throws IOException {
-		@SuppressWarnings({ "resource", "unused" })
-		Scanner input = new Scanner(System.in);
-		new ArrayList<String>();
-		ArrayList<String> songlist = new ArrayList<String>();
-		JOptionPane
-				.showInputDialog("Welcome to the Michigan Tech Winter Carnival Music Selector!\nLet's get started (ENTER)");
-		String name = JOptionPane.showInputDialog("Enter your name: ");
-		String name1 = name + ("'s");
+		iTunesTopTen.add("Good for You\n");
+		iTunesTopTen.add("Cheerleader\n");
+		iTunesTopTen.add("Fight Song\n");
+		iTunesTopTen.add("Bad Blood\n");
+		iTunesTopTen.add("Can't Feel My Face\n");
+		iTunesTopTen.add("Honey, I'm Good\n");
+		iTunesTopTen.add("See You Again\n");
+		iTunesTopTen.add("Shut Up and Dance\n");
+		iTunesTopTen.add("Lean On\n");
+		iTunesTopTen.add("Worth It\n");
+		
 
-		String song1 = "Thinking Out Loud";
-		String song2 = "FourFiveSeconds";
-		String song3 = "Uptown Funk";
-		String song4 = "Take Me to Church";
-		String song5 = "Sugar";
-		String song6 = "Love Me Like You Do";
-		String song7 = "Style";
-		String song8 = "Stay With Me";
-		String song9 = "Earned It";
-		String song10 = "Blank Space";
+	}
 
-		new ArrayList<String>();
-		ArrayList<String> songs = new ArrayList<String>();
-		songs.add(song1);
-		songs.add(song2);
-		songs.add(song3);
-		songs.add(song4);
-		songs.add(song5);
-		songs.add(song6);
-		songs.add(song7);
-		songs.add(song8);
-		songs.add(song9);
-		songs.add(song10);
+	static String iTunes = "";
 
-		String answer = JOptionPane
-				.showInputDialog("This is the list of songs that were in the top 10 on iTunes hottest songs: \n"
-						+ songs
-						+ "\nDo you like any of these songs (enter yes or no)?");
-		int i = 0;
-		int n = 1;
-		int count = 0;
-		System.out.print("iTunes Top 10 list: \n");
-		while (i < songs.size()) {
-			while (n <= 10) {
+	static List<String> randomSongs = new ArrayList<String>();
 
-				System.out.println(n + ". " + songs.get(i));
-				i++;
-				n++;
+	static List<String> seventies = new ArrayList<String>();
+
+	public void seventies() {
+		seventies.add("Stairway To Heaven\n");
+		seventies.add("I Will Survive\n");
+		seventies.add("Play That Funky Music\n");
+		seventies.add("Lean On Me\n");
+		seventies.add("That's the Way I Like It\n");
+		seventies.add("Dream On\n");
+
+	}
+
+	static String seventy = "";
+
+	static List<String> eighties = new ArrayList<String>();
+
+	public void eighties() throws Exception {
+		eighties.add("Funkytown\n");
+		eighties.add("Sweet Dreams are Made of These\n");
+		eighties.add("Tainted Love\n");
+		eighties.add("Electric Slide\n");
+		eighties.add("Mony Mony\n");
+		eighties.add("I Wanna Dance with Somebody\n");
+		eighties.add("Wild Thing\n");
+
+	}
+
+	static String eighty = "";
+
+	static List<String> nineties = new ArrayList<String>();
+
+	public void nineties() throws Exception {
+		nineties.add("Can't touch this\n");
+		nineties.add("This is How We Do It\n");
+
+	}
+
+	static String ninety = "";
+
+	static List<String> twoThousands = new ArrayList<String>();
+
+	public void twoThousand() throws Exception {
+		twoThousands.add("I Gotta Feeling\n");
+		twoThousands.add("Since you been gone\n");
+		twoThousands.add("Single Ladies\n");
+		twoThousands.add("Poker Face\n");
+		twoThousands.add("Who Let the Dogs Out\n");
+
+	}
+
+	static String twoK = "";
+
+	static ArrayList<String> songlist = new ArrayList<String>();
+	static ArrayList<String> suggestions = new ArrayList<String>();
+	static String[] list = null;
+	static String first, middle, last;
+
+	public void chooseSong(String songs) {
+		if (songs.equals("iTunes")) {
+			list = new String[iTunesTopTen.size()];
+			for (int i = 0; i < iTunesTopTen.size(); i++) {
+				list[i] = iTunesTopTen.get(i);
 			}
 		}
 
-		System.out.println();
-
-		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
-			answer = JOptionPane
-					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
+		if (songs.equals("70")) {
+			list = new String[seventies.size()];
+			for (int i = 0; i < seventies.size(); i++) {
+				list[i] = seventies.get(i);
+			}
 
 		}
-		if (answer.equalsIgnoreCase("no")) {
-			JOptionPane
-					.showInputDialog("That's alright, not everyone likes the new tech-like music.\nLet's move on to the next part of the survey. (ENTER)");
+		if (songs.equals("80")) {
+			list = new String[eighties.size()];
+			for (int i = 0; i < eighties.size(); i++) {
+				list[i] = eighties.get(i);
+			}
 
 		}
-
-		while (answer.equalsIgnoreCase("yes")) {
-
-			answer = JOptionPane
-					.showInputDialog("Enter the number of the song: ");
-
-			if (!answer.equalsIgnoreCase("1") && !answer.equalsIgnoreCase("2")
-					&& !answer.equalsIgnoreCase("3")
-					&& !answer.equalsIgnoreCase("4")
-					&& !answer.equalsIgnoreCase("5")
-					&& !answer.equalsIgnoreCase("6")
-					&& !answer.equalsIgnoreCase("7")
-					&& !answer.equalsIgnoreCase("8")
-					&& !answer.equalsIgnoreCase("9")
-					&& !answer.equalsIgnoreCase("10")) {
-				JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10\n"
-								+ "Would you like to try again? ");
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-
-			}
-			if (answer.equalsIgnoreCase("1")) {
-				songlist.add(song1);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song1
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				songs.remove(song1);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-
-			}
-			if (answer.equalsIgnoreCase("2")) {
-				songlist.add(song2);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song2
-								+ "' to your music list.\nWould you like to add another?(enter yes or no) ");
-				songs.remove(song2);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-
-			}
-			if (answer.equalsIgnoreCase("3")) {
-				songlist.add(song3);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song3
-								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
-				songs.remove(song3);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-
-			}
-			if (answer.equalsIgnoreCase("4")) {
-				songlist.add(song4);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song4
-								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
-				songs.remove(song4);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("5")) {
-				songlist.add(song5);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song5
-								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
-				songs.remove(song5);
-				System.out.println();
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("6")) {
-				songlist.add(song6);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song6
-								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
-				songs.remove(song6);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("7")) {
-				songlist.add(song7);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song7
-								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
-				songs.remove(song7);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("8")) {
-				songlist.add(song8);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song8
-								+ "' to your music list.\nWould you like to add another? (enter yes or no)");
-				songs.remove(song8);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("9")) {
-				songlist.add(song9);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song9
-								+ "' to your music list.\nWould you like to add another?(enter yes or no)");
-				songs.remove(song9);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("10")) {
-				songlist.add(song10);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ song10
-								+ "' to your music list.\nWould you like to add another? (enter yes or no)");
-				songs.remove(song10);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
+		if (songs.equals("90")) {
+			list = new String[nineties.size()];
+			for (int i = 0; i < nineties.size(); i++) {
+				list[i] = nineties.get(i);
 			}
 
-			else if (answer.equalsIgnoreCase("no")) {
-				i = 0;
-				n = 1;
-				System.out.print(name1 + " Songlist:  \n");
-				while (i < songlist.size()) {
-					while (n <= count) {
-
-						System.out.println(n + ". " + songlist.get(i));
-						i++;
-						n++;
-					}
-				}
-				System.out.println();
-
-				JOptionPane
-						.showInputDialog("Ok, the songs in your songlist currently are: \n"
-								+ songlist
-								+ "\nLet's move on to the next part of the survey. (ENTER)");
-
+		}
+		if (songs.equals("2000")) {
+			list = new String[twoThousands.size()];
+			for (int i = 0; i < twoThousands.size(); i++) {
+				list[i] = twoThousands.get(i);
 			}
 
 		}
 
-		ArrayList<String> seventies = new ArrayList<String>();
-		String seventy1 = "Stairway To Heaven";
-		String seventy2 = "I Will Survive";
-		String seventy3 = "Play That Funky Music";
-		String seventy4 = "Sweet Home Alabama";
-		String seventy5 = "Lean On Me";
-		String seventy6 = "That's the Way I Like It";
-		String seventy7 = "Dream On";
+		String temp = JOptionPane
+				.showInputDialog("How many songs would you like to add to your song list? ( enter a number, or 'all' if you wish to add all songs in the list): ");
+		if (temp.equalsIgnoreCase("all")) {
+			for (int i = 0; i < list.length; i++) {
+				songlist.add(list[i]);
 
-		seventies.add(seventy1);
-		seventies.add(seventy2);
-		seventies.add(seventy3);
-		seventies.add(seventy4);
-		seventies.add(seventy5);
-		seventies.add(seventy6);
-		seventies.add(seventy7);
-
-		ArrayList<String> eighty = new ArrayList<String>();
-		String eighty1 = "Funkytown";
-		String eighty2 = "Sweet Dreams are Made of These";
-		String eighty3 = "Tainted Love";
-		String eighty4 = "Electric Slide";
-		String eighty5 = "Mony Mony";
-		String eighty6 = "I Wanna Dance with Somebody";
-		String eighty7 = "Wild Thing";
-
-		eighty.add(eighty1);
-		eighty.add(eighty2);
-		eighty.add(eighty3);
-		eighty.add(eighty4);
-		eighty.add(eighty5);
-		eighty.add(eighty6);
-		eighty.add(eighty7);
-
-		ArrayList<String> ninety = new ArrayList<String>();
-		String ninety1 = "Can't touch this";
-		String ninety2 = "This is How We Do It";
-
-		ninety.add(ninety1);
-		ninety.add(ninety2);
-
-		ArrayList<String> twothousand = new ArrayList<String>();
-		String twothousand1 = "I Gotta Feeling";
-		String twothousand2 = "Since you been gone";
-		String twothousand3 = "Single Ladies";
-		String twothousand4 = "Poker Face";
-		String twothousand5 = "Who Let the Dogs Out";
-
-		twothousand.add(twothousand1);
-		twothousand.add(twothousand2);
-		twothousand.add(twothousand3);
-		twothousand.add(twothousand4);
-		twothousand.add(twothousand5);
-
-		answer = JOptionPane
-				.showInputDialog("There a some popular songs from the 70's. Here are a few of them: \n"
-						+ seventies
-						+ "\nDo you like any of these songs?(enter yes or no) ");
-		i = 0;
-		n = 1;
-		System.out.print("Seventies music list:  \n");
-		while (i < seventies.size()) {
-			while (n <= 7) {
-
-				System.out.println(n + ". " + seventies.get(i));
-				i++;
-				n++;
 			}
+			return;
 		}
-		System.out.println();
+		String answer1 = temp;
+		int numberOfSongs = Integer.parseInt(answer1);
 
-		while (!answer.equalsIgnoreCase("yes")
-				&& !answer.equalsIgnoreCase("no")) {
+		for (int i = 0; i < list.length; i++) {
 
-			answer = JOptionPane
-					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs? ");
-		}
+			if (numberOfSongs < 1 || numberOfSongs > list.length) {
 
-		if (answer.equalsIgnoreCase("no")) {
-			JOptionPane
-					.showInputDialog("That's alright not everyone likes the 70's.\nLet's move on to the next part of the survey. (ENTER)");
+				if ((numberOfSongs < 1 || numberOfSongs > list.length)
+						&& i == list.length - 1) {
+					temp = JOptionPane
+							.showInputDialog("Error! You must enter a number from 1-"
+									+ list.length
+									+ " \nHow many songs would you like to add to your song list? ( enter a number ): ");
+					numberOfSongs = Integer.parseInt(temp);
 
-		}
-		while (answer.equalsIgnoreCase("yes")) {
-
-			answer = JOptionPane
-					.showInputDialog("Enter the number of the song: ");
-			while (!answer.equalsIgnoreCase("1")
-					&& !answer.equalsIgnoreCase("2")
-					&& !answer.equalsIgnoreCase("3")
-					&& !answer.equalsIgnoreCase("4")
-					&& !answer.equalsIgnoreCase("5")
-					&& !answer.equalsIgnoreCase("6")
-					&& !answer.equalsIgnoreCase("7")) {
-				answer = JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7\n"
-								+ " Would you like to try again(enter yes or no)?");
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
+					i = 0;
 
 				}
-			}
-			if (answer.equalsIgnoreCase("1")) {
-				songlist.add(seventy1);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ seventy1
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				seventies.remove(seventy1);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
 
-				}
-			}
-			if (answer.equalsIgnoreCase("2")) {
-				songlist.add(seventy2);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ seventy2
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				seventies.remove(seventy2);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("3")) {
-				songlist.add(seventy3);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ seventy3
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				seventies.remove(seventy3);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("4")) {
-				songlist.add(seventy4);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ seventy4
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				seventies.remove(seventy4);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("5")) {
-				songlist.add(seventy5);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ seventy5
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				seventies.remove(seventy5);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("6")) {
-				songlist.add(seventy6);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ seventy6
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				seventies.remove(seventy6);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("7")) {
-				songlist.add(seventy7);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ seventy7
-								+ "' to your music list.Would you like to add another(enter yes or no)?");
-				seventies.remove(seventy7);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
+				continue;
 			}
 
-			if (answer.equalsIgnoreCase("no")) {
-				i = 0;
-				n = 1;
-				System.out.print(name1 + " Songlist:  \n");
-				while (i < songlist.size()) {
-					while (n <= count) {
-
-						System.out.println(n + ". " + songlist.get(i));
-						i++;
-						n++;
-					}
-				}
-				System.out.println();
-				JOptionPane
-						.showInputDialog("Ok, the songs in your list now are:  \n"
-								+ songlist + "\n (ENTER)");
-
-			}
-		}
-
-		answer = JOptionPane
-				.showInputDialog("Here's some songs of the 80's: \n" + eighty
-						+ "\nDo you like any of these(enter yes or no)? ");
-		i = 0;
-		n = 1;
-		System.out.print("Eighties music list:  \n");
-		while (i < eighty.size()) {
-			while (n <= 7) {
-
-				System.out.println(n + ". " + eighty.get(i));
-				i++;
-				n++;
-			}
-		}
-		System.out.println();
-
-		while (!answer.equalsIgnoreCase("yes")
-				&& !answer.equalsIgnoreCase("no")) {
-
-			answer = JOptionPane
-					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-		}
-		if (answer.equalsIgnoreCase("no")) {
-			JOptionPane
-					.showInputDialog("That's alright not everyone likes the 80's.\nLet's move on to the next part of the survey. (ENTER)");
-
-		}
-
-		while (answer.equalsIgnoreCase("yes")) {
-
-			answer = JOptionPane
-					.showInputDialog("Enter the number of the song: ");
-
-			if (!answer.equalsIgnoreCase("1") && !answer.equalsIgnoreCase("2")
-					&& !answer.equalsIgnoreCase("3")
-					&& !answer.equalsIgnoreCase("4")
-					&& !answer.equalsIgnoreCase("5")
-					&& !answer.equalsIgnoreCase("6")
-					&& !answer.equalsIgnoreCase("7")) {
-				answer = JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, 5, 6, or 7\n"
-								+ "Would you like to try again(enter yes or no)?");
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("1")) {
-				songlist.add(eighty1);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ eighty1
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				eighty.remove(eighty1);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("2")) {
-				songlist.add(eighty2);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ eighty2
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				eighty.remove(eighty2);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("3")) {
-				songlist.add(eighty3);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ eighty3
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				eighty.remove(eighty3);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("4")) {
-				songlist.add(eighty4);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ eighty4
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				eighty.remove(eighty4);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("5")) {
-				songlist.add(eighty5);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ eighty5
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				eighty.remove(eighty5);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-
-			if (answer.equalsIgnoreCase("6")) {
-				songlist.add(eighty6);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ eighty6
-								+ "' to your music list.\nWould you like to add another(enter yes or no)?");
-				eighty.remove(eighty6);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("7")) {
-				songlist.add(eighty7);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ eighty7
-								+ "' to your music list.Would you like to add another(enter yes or no)?");
-				eighty.remove(eighty7);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("no")) {
-
-				i = 0;
-				n = 1;
-				System.out.print(name1 + " Songlist:  \n");
-				while (i < songlist.size()) {
-					while (n <= count) {
-
-						System.out.println(n + ". " + songlist.get(i));
-						i++;
-						n++;
-					}
-				}
-				System.out.println();
-				JOptionPane
-						.showInputDialog("Ok, the songs in your song list now are: \n"
-								+ songlist
-								+ "\nLet's move on to the next part of the survey. (ENTER)");
-
-			}
-
-		}
-
-		answer = JOptionPane
-				.showInputDialog("Here's some songs of the 90's: \n" + ninety
-						+ "\nDo you like any of these (enter yes or no)?");
-		i = 0;
-		n = 1;
-		System.out.print("Nineties music list:  \n");
-		while (i < ninety.size()) {
-			while (n <= 2) {
-
-				System.out.println(n + ". " + ninety.get(i));
-				i++;
-				n++;
-			}
-		}
-		System.out.println();
-
-		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
-
-			answer = JOptionPane
-					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs? ");
-		}
-		if (answer.equalsIgnoreCase("no")) {
-			JOptionPane
-					.showInputDialog("That's alright not everyone likes the 90's.\nLet's move on to the next part of the survey. (ENTER)");
-			System.out.println();
-		}
-		while (answer.equalsIgnoreCase("yes")) {
-
-			answer = JOptionPane
-					.showInputDialog("Enter the number of the song: ");
-
-			if (!answer.equalsIgnoreCase("1") && !answer.equalsIgnoreCase("2")) {
-				answer = JOptionPane
-						.showInputDialog("Error! You must enter either: 1 or 2\nWould you like to try again(enter yes or no)?");
-
-			}
-			if (answer.equalsIgnoreCase("1")) {
-				songlist.add(ninety1);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ ninety1
-								+ "' to your music list.\nWould you like to add the other song as well(enter yes or no)?");
-				ninety.remove(ninety1);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-				if (answer.equalsIgnoreCase("yes")) {
-					songlist.add(ninety2);
-					ninety.remove(ninety2);
-					count++;
-					break;
-				}
-
-			}
-			if (answer.equalsIgnoreCase("2")) {
-				songlist.add(ninety2);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ ninety2
-								+ "' to your music list.\nWould you like to add the other song as well(enter yes or no)?");
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-				if (answer.equalsIgnoreCase("yes")) {
-					songlist.add(ninety1);
-					count++;
-					ninety.remove(ninety1);
-					break;
-				}
-
-			}
-			i = 0;
-			n = 1;
-			System.out.print(name1 + " Songlist:  \n");
-			while (i < songlist.size()) {
-				while (n <= count) {
-
-					System.out.println(n + ". " + songlist.get(i));
-					i++;
-					n++;
-				}
-			}
-			System.out.println();
-
-			JOptionPane
-					.showInputDialog("Ok, the songs in your songlist now are: \n"
-							+ songlist + "\n (ENTER)");
-
-		}
-
-		answer = JOptionPane
-				.showInputDialog("Here's some songs of the 2000's: \n"
-						+ twothousand
-						+ "\nDo you like any of these(enter yes or no)? ");
-		i = 0;
-		n = 1;
-		System.out.print("Twothousands music list:  \n");
-		while (i < twothousand.size()) {
-			while (n <= 5) {
-
-				System.out.println(n + ". " + twothousand.get(i));
-				i++;
-				n++;
-			}
-		}
-		System.out.println();
-
-		while (!answer.equalsIgnoreCase("yes")
-				&& !answer.equalsIgnoreCase("no")) {
-
-			answer = JOptionPane
-					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs? ");
-		}
-		if (answer.equalsIgnoreCase("no"))
-			JOptionPane
-					.showInputDialog("That's alright not everyone likes the 2000's.\nLet's move on to the next part of the survey. (ENTER)");
-
-		while (answer.equalsIgnoreCase("yes")) {
-
-			answer = JOptionPane
-					.showInputDialog("Enter the number of the song: ");
-
-			if (!answer.equalsIgnoreCase("1") && !answer.equalsIgnoreCase("2")
-					&& !answer.equalsIgnoreCase("3")
-					&& !answer.equalsIgnoreCase("4")
-					&& !answer.equalsIgnoreCase("5")) {
-				answer = JOptionPane
-						.showInputDialog("Error! You must enter either: 1, 2, 3, 4, or 5\nWould you like to try again(enter yes or no)?"
-								+ " (ENTER)");
-
-			}
-			if (answer.equalsIgnoreCase("1")) {
-				songlist.add(twothousand1);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ twothousand1
-								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
-				twothousand.remove(twothousand1);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("2")) {
-				songlist.add(twothousand2);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ twothousand2
-								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
-				twothousand.remove(twothousand2);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("3")) {
-				songlist.add(twothousand3);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ twothousand3
-								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
-				twothousand.remove(twothousand3);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("4")) {
-				songlist.add(twothousand4);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ twothousand4
-								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
-				twothousand.remove(twothousand4);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-			if (answer.equalsIgnoreCase("5")) {
-				songlist.add(twothousand5);
-				answer = JOptionPane
-						.showInputDialog("You have added '"
-								+ twothousand5
-								+ "' to your music list.\nWould you like to add another song(enter yes or no)? ");
-				twothousand.remove(twothousand5);
-				count++;
-				while (!answer.equalsIgnoreCase("yes")
-						&& !answer.equalsIgnoreCase("no")) {
-					answer = JOptionPane
-							.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-				}
-			}
-
-			if (answer.equalsIgnoreCase("no")) {
-				i = 0;
-				n = 1;
-				System.out.print(name1 + " Songlist:  \n");
-				while (i < songlist.size()) {
-					while (n <= count) {
-
-						System.out.println(n + ". " + songlist.get(i));
-						i++;
-						n++;
-					}
-				}
-				JOptionPane.showInputDialog("Ok, let's move on. (ENTER)");
-			}
-		}
-
-		System.out.println();
-
-		answer = JOptionPane
-				.showInputDialog("Are there any more songs that you like that you would like to add (enter yes or no)? ");
-		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
-			answer = JOptionPane
-					.showInputDialog("Error, You must Enter yes or no.\nAre there any more songs that you like that you would like to add (enter yes or no)?");
-
-		}
-		if (answer.equalsIgnoreCase("no")) {
-			JOptionPane
-					.showInputDialog("Ok.\nLet's move on to the next part of the survey. (ENTER)");
-
-		}
-		while (answer.equalsIgnoreCase("yes")) {
-			answer = JOptionPane.showInputDialog("Enter Title Here: ");
-			songlist.add(answer);
-			count++;
-			i = 0;
-			n = 1;
-			System.out.println();
-			System.out.print(name1 + " Songlist:  \n");
-			while (i < songlist.size()) {
-				while (n <= count) {
-
-					System.out.println(n + ". " + songlist.get(i));
-					i++;
-					n++;
-				}
-			}
-			answer = JOptionPane
-					.showInputDialog("You have added '"
-							+ answer
-							+ "' to your music list.\nWould you like to add another song? ");
-			if (!answer.equalsIgnoreCase("yes")
-					&& !answer.equalsIgnoreCase("no")) {
-				answer = JOptionPane
-						.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-			}
-		}
-
-		System.out.println();
-
-		JOptionPane.showInputDialog("The songs in your songlist are now: \n"
-				+ songlist + "\n (ENTER)");
-		String lastName = JOptionPane.showInputDialog("Enter your last name: ");
-		String middleIntitial = JOptionPane
-				.showInputDialog("Enter your middle initial: ");
-		answer = JOptionPane.showInputDialog("\t\t\tNew Message\n\n\n\n"
-				+ " To: Audio Engineering <aes-l@mtu.edu>\n"
-				+ " --------------------------------------\n"
-				+ " Cc:                                  \n"
-				+ " --------------------------------------\n"
-				+ " Subject:                             \n"
-				+ " --------------------------------------\n" + " From: "
-				+ name.substring(0, 1).toUpperCase()
-				+ name.substring(1).toLowerCase() + " "
-				+ middleIntitial.substring(0, 1).toUpperCase() + ". "
-				+ lastName.substring(0, 1).toUpperCase()
-				+ name.substring(1).toLowerCase() + " - "
-				+ name.substring(0, 1).toLowerCase()
-				+ middleIntitial.toLowerCase() + lastName.toLowerCase()
-				+ "@mtu.edu  \n" + " --------------------------------------\n"
-				+ " " + name1
-				+ " Songlist.txt\t\t\t\t\t\tWould you like to send?\n"
-				+ "\t20KB");
-		if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
-			answer = JOptionPane
-					.showInputDialog("Error, You must Enter yes or no.\nDo you like any of these songs(enter yes or no)? ");
-
-		}
-		while (answer.equalsIgnoreCase("yes")) {
-			JOptionPane.showInputDialog("Email Sent!");
 			break;
-		}
 
-		while (answer.equalsIgnoreCase("no")) {
-			java.io.File file = new java.io.File(name1 + " Songlist.txt");
-			java.io.PrintWriter ouput = new java.io.PrintWriter(file);
-			java.io.File tempName1 = new java.io.File(name1);
-			java.io.PrintWriter output = new java.io.PrintWriter(file);
-			output.print(songlist);
-			output.close();
-			JOptionPane.showInputDialog("Your song list: " + name1 + " Songlist, has been saved as\n" + name1 + " Songlist.txt in 'Workspace' in the Music Selector folder");
-			break;
+		}
+		if (numberOfSongs > 1) {
+			int counter = 1;
+			for (int number = 0; number < numberOfSongs; number++) {
+				String songNumber = JOptionPane.showInputDialog("What is song "
+						+ counter
+						+ ". that you would like to add to your songlist? ");
+				int songChoice = Integer.parseInt(songNumber);
+
+				songChoice -= 1;
+
+				while (songChoice < 0 || songChoice > list.length - 1) {
+					String songWant = JOptionPane
+							.showInputDialog("Error, you must enter a number from 1 - "
+									+ list.length
+									+ " \n"
+									+ "Please try again.\n"
+									+ "What is song "
+									+ counter
+									+ ". that you would like to add to your songlist? ");
+					songChoice = Integer.parseInt(songWant);
+
+					songChoice -= 1;
+
+				}
+				for (int i = 0; i < songlist.size(); i++) {
+					if (songlist.get(i) == list[songChoice]) {
+						songNumber = JOptionPane
+								.showInputDialog("You have already choosen this number, please choose a different number: ");
+						songChoice = Integer.parseInt(songNumber);
+						songChoice -= 1;
+						while (songChoice < 0 || songChoice > list.length - 1) {
+							String songWant = JOptionPane
+									.showInputDialog("Error, you must enter a number from 1 - "
+											+ list.length
+											+ " \n"
+											+ "Please try again.\n"
+											+ "What is song "
+											+ counter
+											+ ". that you would like to add to your songlist? ");
+							songChoice = Integer.parseInt(songWant);
+
+							songChoice -= 1;
+
+						}
+					}
+					continue;
+				}
+				songlist.add(list[songChoice]);
+				counter++;
+			}
+
+		} else {
+			String songNumber = JOptionPane
+					.showInputDialog("What is the number of the song that you would like to add to your songlist? ");
+			int songChoice = Integer.parseInt(songNumber);
+
+			songChoice -= 1;
+			for (int i = 0; i < songlist.size(); i++) {
+				if (songlist.get(i) == list[songChoice]) {
+					songNumber = JOptionPane
+							.showInputDialog("You have already choosen this number, please choose a different number: ");
+					songChoice = Integer.parseInt(songNumber);
+					songChoice -= 1;
+					while (songChoice < 0 || songChoice > list.length - 1) {
+						String songWant = JOptionPane
+								.showInputDialog("Error, you must enter a number from 1 - "
+										+ list.length
+										+ " \n"
+										+ "Please try again.\n"
+										+ "What song "
+										+ " would you like to add to your songlist? ");
+						songChoice = Integer.parseInt(songWant);
+
+						songChoice -= 1;
+					}
+				}
+				continue;
+			}
+			songlist.add(list[songChoice]);
 
 		}
 
 	}
 
+	public void noAddMore() {
+
+		JOptionPane.showInputDialog("Ok, lets move on.");
+
+	}
+
+	public String firstName() {
+		String first = JOptionPane
+				.showInputDialog("Please enter your first name: ");
+		while (first.equals("")) {
+			first = JOptionPane
+					.showInputDialog("Error, please enter your first name: ");
+		}
+		String firstName = first.substring(0, 1).toUpperCase();
+		firstName += first.substring(1).toLowerCase();
+		firstName += "'s ";
+		return firstName;
+	}
+
+	public String middleInitial() {
+		String middle = JOptionPane
+				.showInputDialog("Thank you, please enter your middle initial: ");
+		while (middle.equals("")) {
+			middle = JOptionPane
+					.showInputDialog("Error, please enter your middle initial: ");
+		}
+		String middleInitial = middle.toUpperCase();
+		middleInitial += ". ";
+		return middleInitial;
+	}
+
+	public String lastName() {
+
+		String last = JOptionPane
+				.showInputDialog("Thank you again, please enter your last name: ");
+		while (last.equals("")) {
+			last = JOptionPane
+					.showInputDialog("Error, please enter your last name: ");
+		}
+		String lastName = last.substring(0, 1).toUpperCase();
+		lastName += last.substring(1).toLowerCase();
+		return lastName;
+	}
+
+	public void displyUserList() {
+		System.out
+		.print("_____________________________________________________________\n");
+		System.out.println(first + " songlist:");
+		int index = 1;
+		for (int i = 0; i < songlist.size(); i++) {
+			System.out.print(index + ". " + songlist.get(i));
+			index++;
+		}
+		System.out
+		.print("_____________________________________________________________\n");
+	}
+
+	public void emailMessage() {
+		java.io.File file = new java.io.File(first + " Songlist.txt");
+		int fileSize = (int) (file.length());
+		String fileSizeName = "";
+		int count = 0;
+		if (fileSize > 1024) {
+			fileSize = fileSize / 1024;
+			count++;
+		}
+		if (count == 0) {
+			fileSizeName = "Kilobytes";
+		}
+		if (count == 1) {
+			fileSizeName = "Megabytes";
+		}
+		String emailAnswer = JOptionPane
+				.showInputDialog("Would you like to have your list emailed to you?");
+		if (emailAnswer.equalsIgnoreCase("y")) {
+			String userEmail = JOptionPane
+					.showInputDialog("What is your email address?");
+
+			String answer = JOptionPane
+					.showInputDialog("\t\t\tNew Message\n\n\n\n"
+							+ " To: Audio Engineering <aes-l@mtu.edu>\n"
+							+ " --------------------------------------\n"
+							+ " Cc:                                  \n"
+							+ " --------------------------------------\n"
+							+ " Subject:                             \n"
+							+ " --------------------------------------\n"
+							+ " From: " + first + " " + middle + ". " + last
+							+ " - " + first.substring(0, 1).toLowerCase()
+							+ middle.substring(0, 1).toLowerCase()
+							+ last.toLowerCase() + "@mtu.edu  \n"
+							+ " --------------------------------------\n" + " "
+							+ first + " Songlist.txt - " + fileSize
+							+ fileSizeName
+							+ "\t\t\t\t\t\tWould you like to send the email?\n");
+			if (!answer.equalsIgnoreCase("yes")
+					&& !answer.equalsIgnoreCase("no")
+					&& !answer.equalsIgnoreCase("y")
+					&& !answer.equalsIgnoreCase("n")) {
+				answer = JOptionPane
+						.showInputDialog("Error, You must Enter 'yes, 'no', 'y', or 'n'.\nWould you like to send the email? ");
+
+			}
+			if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")) {
+				JOptionPane.showInputDialog("Email Sent! ( Press ENTER )");
+			} else if (answer.equalsIgnoreCase("n")
+					|| answer.equalsIgnoreCase("no")) {
+				JOptionPane
+				.showInputDialog("Ok email was not send ( Press ENTER )");
+
+			}
+		}
+
+	}
+
+	public void extraSongsByUser() {
+
+		int extraSongNumber = 0;
+		String extraSong = JOptionPane
+				.showInputDialog("How many songs would you like to add?");
+		extraSongNumber = Integer.parseInt(extraSong);
+		for (int i = 0; i < extraSongNumber; i++) {
+			extraSong = JOptionPane
+					.showInputDialog("What is the title of song #" + (i + 1)
+							+ " that you would like to add?");
+			String tempS = (extraSong.substring(0, 1).toUpperCase()
+					+ extraSong.substring(1) + "\n");
+			songlist.add(tempS);
+		}
+	}
+
+	public void removeSongs() {
+		String answer = JOptionPane
+				.showInputDialog("Let's polish your list up a bit.\nAre there any songs you wish to remove from"
+						+ "your list?");
+		if (answer.equalsIgnoreCase("y")) {
+			String numberRemoving = JOptionPane
+					.showInputDialog("How many songs need to be removed?");
+			int removing = Integer.parseInt(numberRemoving);
+			for (int i = 0; i < removing; i++) {
+				int temp = Integer
+						.parseInt(JOptionPane
+								.showInputDialog("What is song "
+										+ (i + 1)
+										+ " that needs to be removed? (Enter a number 1-"
+										+ songlist.size() + ")"));
+				songlist.remove(temp - 1);
+
+				if (i == removing - 1) {
+					JOptionPane
+					.showInputDialog("All set! This is your new list: ");
+					displyUserList();
+				}
+
+			}
+
+		} else if (answer.equalsIgnoreCase("n")) {
+			JOptionPane
+			.showInputDialog("Alrighty then, it seems that your song list is nice and tidy. Press ENTER");
+
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		musicSelectorv2 self = new musicSelectorv2();
+		self.iTunes();
+		System.out.println("Going Well so Far, iTunes method completed.");
+		self.seventies();
+		System.out.println("Going Well so Far, seventies method completed.");
+		self.eighties();
+		System.out.println("Going Well so Far, eighties method completed.");
+		self.nineties();
+		System.out.println("Going Well so Far, nineties method completed.");
+		self.twoThousand();
+		System.out.println("Going Well so Far, twoThousands method completed.");
+		// self.checkForDuplicates();
+
+		JOptionPane
+		.showInputDialog("Welcome to the Michigan Tech Winter Carnival Music Selector!\nLet's get started (press ENTER)");
+
+		first = self.firstName();
+
+		middle = self.middleInitial();
+
+		last = self.lastName();
+
+		String answer = "";
+		for (int i = 1; i <= 6; i++) {
+			if (i == 1) {
+				JOptionPane
+				.showInputDialog("Coming up is the list of songs that were in the top 10 on iTunes hottest songs (press ENTER to view): \n");
+				answer = self.display("iTunes");
+
+				String correctInput = self.errorYesOrNo(answer);
+
+				String result = self.likeList(correctInput);
+				if (result.equals("yes") || result.equalsIgnoreCase("y")) {
+					self.chooseSong("iTunes");
+				} else {
+					self.likeList(result);
+				}
+				self.displyUserList();
+			}
+			if (i == 2) {
+				JOptionPane
+				.showInputDialog("Coming up is the list of songs that were from the 70's (press ENTER to view): \n");
+				answer = self.display("70");
+
+				String correctInput = self.errorYesOrNo(answer);
+
+				String result = self.likeList(correctInput);
+				if (result.equals("yes") || result.equalsIgnoreCase("y")) {
+					self.chooseSong("70");
+				} else {
+					self.likeList(result);
+				}
+				self.displyUserList();
+			}
+			if (i == 3) {
+				JOptionPane
+				.showInputDialog("Coming up is the list of songs that were from the 80's (press ENTER to view): \n");
+				answer = self.display("80");
+
+				String correctInput = self.errorYesOrNo(answer);
+
+				String result = self.likeList(correctInput);
+				if (result.equals("yes") || result.equalsIgnoreCase("y")) {
+					self.chooseSong("80");
+				} else {
+					self.likeList(result);
+				}
+				self.displyUserList();
+			}
+			if (i == 4) {
+				JOptionPane
+				.showInputDialog("Coming up is the list of songs that were from the 90's (press ENTER to view): \n");
+				answer = self.display("90");
+
+				String correctInput = self.errorYesOrNo(answer);
+
+				String result = self.likeList(correctInput);
+				if (result.equals("yes") || result.equalsIgnoreCase("y")) {
+					self.chooseSong("90");
+				} else {
+					self.likeList(result);
+				}
+				self.displyUserList();
+			}
+			if (i == 5) {
+				JOptionPane
+				.showInputDialog("Coming up is the list of songs that were from the 2000's (press ENTER to view): \n");
+				answer = self.display("2000");
+
+				String correctInput = self.errorYesOrNo(answer);
+
+				String result = self.likeList(correctInput);
+				if (result.equals("yes") || result.equalsIgnoreCase("y")) {
+					self.chooseSong("2000");
+				} else {
+					self.likeList(result);
+				}
+				self.displyUserList();
+			}
+			if (i == 6) {
+				String more = JOptionPane
+						.showInputDialog("Alrighty, you have gone through songs that we from the 70's - 2000's.\n "
+								+ "Are there and other songs that weren't in the previous music lists that you would like to add to your songlist? ");
+				String correctInput = self.errorYesOrNo(more);
+
+				if (correctInput.equals("yes")
+						|| correctInput.equalsIgnoreCase("y")) {
+					self.extraSongsByUser();
+				} else {
+					self.noAddMore();
+				}
+				JOptionPane
+				.showInputDialog("Your custom list will be coming up on the left ( <= ) Press ENTER:\n");
+				System.out.println();
+				self.displyUserList();
+			}
+
+		}
+		self.removeSongs();
+		self.emailMessage();
+	}
+
+	public String errorYesOrNo(String answer) {
+		String input = "";
+		while (!answer.equalsIgnoreCase("yes")
+				&& !answer.equalsIgnoreCase("no")
+				&& !answer.equalsIgnoreCase("y")
+				&& !answer.equalsIgnoreCase("n")) {
+			answer = JOptionPane
+					.showInputDialog("Error, you must enter 'yes', 'no', 'y', or 'n' "
+							+ "\nPlease try again, do you like any of the of songs in the list to the left?: ");
+		}
+		input = answer;
+
+		return input;
+	}
+
+	public String likeList(String answer) {
+		if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")) {
+			return answer;
+		}
+		if (answer.equalsIgnoreCase("no") || answer.equalsIgnoreCase("n")) {
+			JOptionPane
+			.showInputDialog("That's alright not everyone likes these songs.\nLet's move on.(Press ENTER key)");
+
+		}
+		return "no";
+	}
+
+	public String display(String string) {
+
+		if (string.equals("iTunes")) {
+			list = new String[iTunesTopTen.size()];
+			System.out.println("iTunes Top Ten: ");
+			for (int i = 0; i < iTunesTopTen.size(); i++) {
+				list[i] = iTunesTopTen.get(i);
+			}
+		}
+
+		if (string.equals("70")) {
+			list = new String[seventies.size()];
+			System.out.println("70's: ");
+			for (int i = 0; i < seventies.size(); i++) {
+				list[i] = seventies.get(i);
+			}
+
+		}
+		if (string.equals("80")) {
+			list = new String[eighties.size()];
+			System.out.println("80's:");
+			for (int i = 0; i < eighties.size(); i++) {
+				list[i] = eighties.get(i);
+			}
+
+		}
+		if (string.equals("90")) {
+			list = new String[nineties.size()];
+			System.out.println("90's:");
+			for (int i = 0; i < nineties.size(); i++) {
+				list[i] = nineties.get(i);
+			}
+
+		}
+		if (string.equals("2000")) {
+			list = new String[twoThousands.size()];
+			System.out.println("2000's:");
+			for (int i = 0; i < twoThousands.size(); i++) {
+				list[i] = twoThousands.get(i);
+			}
+
+		}
+
+		int l = 1;
+		if (list.length > 9) {
+
+			for (int i = 0; i < list.length; i++) {
+
+				if (i < 9) {
+					System.out.print(l + ".  " + list[i]);
+					l++;
+				} else {
+					System.out.print(l + ". " + list[i]);
+
+					l++;
+				}
+			}
+		} else {
+			for (int i = 0; i < list.length; i++) {
+				System.out.print(l + ". " + list[i]);
+
+				l++;
+			}
+		}
+		String answer = JOptionPane
+				.showInputDialog("\nThe songs are on the left. <= \nDo you like any of these songs? (Enter 'yes', 'y', 'no', or 'n'): ");
+
+		return answer;
+	}
 }
+// hard-code all songs into each array
+// create a random song list and remove each song from the specific array as
+// song is added to random song array.
+// display songs from the array
+// figure out how to display the songs in sections of too big .
+// add method for user to input suggestions to make program better
